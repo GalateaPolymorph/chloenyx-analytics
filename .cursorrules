@@ -1,0 +1,5 @@
+Never use classes
+Always use functional programming methodology
+Never use the function keyword, always use arrow functions
+Use .map(), .filter(), .reduce() and .forEach() over loops
+Always use types, never use interfaces
