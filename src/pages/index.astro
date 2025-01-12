@@ -1,0 +1,55 @@
+---
+import type { ChartData } from "chart.js";
+import Chart from "../components/Chart";
+
+// In a real implementation, this would load from your CSV files
+const mockData: ChartData<"line"> = {
+  labels: ["January", "February", "March", "April", "May"],
+  datasets: [
+    {
+      label: "Sample Metric",
+      data: [65, 59, 80, 81, 56],
+      borderColor: "rgb(75, 192, 192)",
+      tension: 0.1,
+    },
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Analytics Dashboard</title>
+  </head>
+  <body>
+    <main>
+      <h1>Analytics Dashboard</h1>
+      <div class="chart-container">
+        <Chart client:load data={mockData} />
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .chart-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
